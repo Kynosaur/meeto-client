@@ -19,7 +19,7 @@ class App extends Component {
   
   renderMeetrips() {
     return this.state.data.map((meetrip) => (
-      <Meetrip key={meetrip.key} fromLocation={meetrip.from_location} toLocation={meetrip.to_location} contactInfo={meetrip.contact_info} />
+      <Meetrip key={meetrip.id} fromLocation={meetrip.from_location} toLocation={meetrip.to_location} contactInfo={meetrip.contact_info} />
     ));
   }
 
