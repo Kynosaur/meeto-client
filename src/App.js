@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Meetrip from './Meetrip';
+import AddMeetripForm from './AddMeetripForm'
 import './App.css';
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
         return response.json();
       })
       .then(json => {
-        this.setState({ data: json });
+        this.setState({ meetrips: json });
       });
   }
 
@@ -37,6 +38,7 @@ class App extends Component {
         <ul>
           {this.renderMeetrips()}
         </ul>
+        <AddMeetripForm />
       </div>
     );
   }
