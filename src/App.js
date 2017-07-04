@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Meetrip from './Meetrip'
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { data: [] }
+  }
+
+  componentDidMount() {
+        fetch("http://localhost:9292/meetrips")
+            .then( (response) => {
+                return response.json() })   
+                    .then( (json) => {
+                        this.setState({data: json});
+                    });
+    };
+  
+  renderMeetrips() {
+    return this.state.data.map((meetrip) => (
+      <Meetrip key={meetrip.key} fromLocation={meetrip.from_location} toLocation={meetrip.to_location} contactInfo={meetrip.contact_info} />
+    ));
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Welcome to Meeto</h1>
+          <h2>Available meetrips:</h2>
+          <ul>
+            {this.renderMeetrips()}
+          </ul>
       </div>
     );
   }
