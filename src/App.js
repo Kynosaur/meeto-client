@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = { meetrips: [] };
   }
 
   componentDidMount() {
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   renderMeetrips() {
-    return this.state.data.map(meetrip =>
+    return this.state.meetrips.map(meetrip =>
       <Meetrip
         key={meetrip.id}
         fromLocation={meetrip.from_location}
