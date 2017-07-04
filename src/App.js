@@ -9,13 +9,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-        fetch("http://localhost:9292/meetrips")
-            .then( (response) => {
-                return response.json() })   
-                    .then( (json) => {
-                        this.setState({data: json});
-                    });
-    };
+    fetch("http://localhost:9292/meetrips")
+      .then( (response) => {
+        return response.json() })   
+          .then( (json) => {
+            this.setState({data: json});
+        });
+  };
   
   renderMeetrips() {
     return this.state.data.map((meetrip) => (
