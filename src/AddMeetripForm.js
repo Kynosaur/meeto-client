@@ -14,9 +14,9 @@ class Meetrip extends React.Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: JSON.stringify(meetrip)
     });
-    this.fromLocation.value = ''
-    this.toLocation.value = ''
-    this.contactInfo.value = ''
+    this.fromLocation.value = '';
+    this.toLocation.value = '';
+    this.contactInfo.value = '';
   }
 
   render() {
