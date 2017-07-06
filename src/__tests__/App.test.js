@@ -4,6 +4,9 @@ import { shallow, mount, render } from 'enzyme';
 import { expect } from 'chai';
 import App from '../components/App';
 
+import { XMLHttpRequest } from 'xmlhttprequest';
+global.XMLHttpRequest = XMLHttpRequest;
+
 describe('App', () => {
 
   it('renders without crashing', () => {
