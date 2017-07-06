@@ -7,6 +7,10 @@ class MeetripsList extends React.Component {
     this.state = { meetrips: [] };
   }
 
+  componentDidMount() {
+    this.fetchMeetrips();
+  }
+
   fetchMeetrips() {
     fetch('http://localhost:9292/meetrips').then(response => {
       return response.json().then(json => {
@@ -15,8 +19,15 @@ class MeetripsList extends React.Component {
     });
   }
 
-  componentDidMount() {
-    this.fetchMeetrips();
+  renderMeetrips() {
+    return this.state.meetrips.map(meetrip =>
+      <Meetrip
+        key={meetrip.id}
+        fromLocation={meetrip.from_location}
+        toLocation={meetrip.to_location}
+        contactInfo={meetrip.contact_info}
+      />
+    );
   }
 
   render() {
@@ -24,14 +35,7 @@ class MeetripsList extends React.Component {
       <div>
         <h2>List of Meetrips</h2>
         <ul>
-          {this.state.meetrips.map(meetrip => {
-            <Meetrip
-              key={meetrip.id}
-              fromLocation={meetrip.from_location}
-              toLocation={meetrip.to_location}
-              contactInfo={meetrip.contact_info}
-            />;
-          })}
+          {this.renderMeetrips()}
         </ul>
       </div>
     );
