@@ -20,20 +20,4 @@ describe('App', () => {
     const appWrapper = mount(<App />);
     expect(appWrapper.find('h1').exists()).to.equal(true);
   })
-
-  it('creates a new meetrip', async () => {
-    const appWrapper = mount(<App />);
-    const formWrapper = mount(<NewMeetripForm />);
-    const fromLocation = formWrapper.ref('fromLocation');
-    const toLocation = formWrapper.ref('toLocation');
-    const contactInfo = formWrapper.ref('contactInfo');
-    const submitButton = formWrapper.ref('submitMeetripButton');
-    fromLocation.simulate('change', { target: { value: 'London' } });
-    toLocation.simulate('change', { target: { value: 'Manchester' } });
-    contactInfo.simulate('change', { target: { value: '555 123' } });
-    submitButton.simulate('click');
-    appWrapper.update();
-    await sleep(500)
-    expect(appWrapper.text()).to.include('From: London, To: Manchester, Contact: 555 123');
-  })
 });
