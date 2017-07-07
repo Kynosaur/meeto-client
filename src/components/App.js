@@ -3,7 +3,6 @@ import './App.css';
 
 import Welcome from './Welcome'
 import MeetripsList from './MeetripsList'
-import NewMeetripForm from './NewMeetripForm'
 
 class App extends Component {
   render() {
@@ -11,7 +10,6 @@ class App extends Component {
       <div className="App">
         <Welcome />
         <MeetripsList />
-        <NewMeetripForm />
       </div>
     );
   }

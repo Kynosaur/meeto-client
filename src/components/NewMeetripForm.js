@@ -2,8 +2,8 @@ import React from 'react';
 
 class NewMeetripForm extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {from_location: '', to_location: '', contact_info: ''};
     this.handleChange = this.handleChange.bind(this);
     this.createMeetrip = this.createMeetrip.bind(this);
@@ -35,7 +35,7 @@ class NewMeetripForm extends React.Component {
         <input type='text' name='to_location' placeholder='E.g. Manchester' ref={'toLocation'} onChange={this.handleChange}/>
         <label htmlFor='contact_info'>Contact Information:</label>
         <input type='text' name='contact_info' placeholder='E.g. 555 0123' ref={'contactInfo'} onChange={this.handleChange}/>
-        <input type='submit' value='Create Meetrip' ref={'submitMeetripButton'} />
+        <input type='submit' value='Create Meetrip' ref={'submitMeetripButton'} onClick={this.props.handler} />
       </form>
     )
   }

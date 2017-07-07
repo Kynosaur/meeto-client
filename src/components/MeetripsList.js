@@ -1,10 +1,17 @@
 import React from 'react';
 import Meetrip from './Meetrip';
+import NewMeetripForm from './NewMeetripForm'
 
 class MeetripsList extends React.Component {
-  constructor() {
-    super();
-    this.state = { meetrips: [] };
+  constructor(props) {
+    super(props);
+    this.state = { meetrips: [],
+                   refresh: false};
+    this.handler = this.handler.bind(this);
+  }
+
+  handler(event) {
+    this.fetchMeetrips();
   }
 
   componentDidMount() {
@@ -37,6 +44,7 @@ class MeetripsList extends React.Component {
         <ul>
           {this.renderMeetrips()}
         </ul>
+        <NewMeetripForm handler = {this.handler} />
       </div>
     );
   }
