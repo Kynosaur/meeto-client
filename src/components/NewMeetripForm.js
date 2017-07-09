@@ -23,17 +23,21 @@ class NewMeetripForm extends React.Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
       body: JSON.stringify(this.state)
     });
+    this.refs.fromLocation.value = ''
+    this.refs.toLocation.value = ''
+    this.refs.contactInfo.value = ''
   }
 
   render() {
     return (
-      <form onSubmit={this.createMeetrip}>
+      <form onSubmit={this.createMeetrip} className='newMeetripForm'>
         <label htmlFor='from_location'>From:</label>
-        <input type='text' name='from_location' placeholder='E.g. London' ref='fromLocation' onChange={this.handleChange} />
+        <input type='text' name='from_location' placeholder='E.g. London' ref={'fromLocation'} onChange={this.handleChange} />
         <label htmlFor='to_location'>To:</label>
         <input type='text' name='to_location' placeholder='E.g. Manchester' ref={'toLocation'} onChange={this.handleChange}/>
         <label htmlFor='contact_info'>Contact Information:</label>
-        <input type='text' name='contact_info' placeholder='E.g. 555 0123' ref={'contactInfo'} onChange={this.handleChange}/>
+        <input type='text' name='contact_info' placeholder='E.g. Bob, 555 0123' ref={'contactInfo'} onChange={this.handleChange}/>
+        <br />
         <input type='submit' value='Create Meetrip' ref={'submitMeetripButton'} onClick={this.props.handler} />
       </form>
     )

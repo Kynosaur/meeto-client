@@ -1,5 +1,41 @@
 body {
+  height: 100%;
   margin: 0;
-  padding: 0;
   font-family: sans-serif;
+  background: linear-gradient(lightblue, aliceblue);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+ul {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+}
+
+.welcome {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.newMeetripForm {
+  padding: 20px;
+}
+
+.newMeetripForm input {
+  padding: 5px;
+  margin: 5px;
+  background-color: #dbe8ff;
+  border: 1px outset;
+}
+
+.newMeetripForm input[type=submit] {
+  margin: 8px;
+  font-size: 16px;
+  border: 3px solid transparent;
+}
+
+input[type=submit]:hover {
+  transition: all 0.5s ease;
+  border: 3px outset #75bbe5;
 }
