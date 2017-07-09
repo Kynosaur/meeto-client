@@ -17,7 +17,6 @@ class NewMeetripForm extends React.Component {
   }
 
   createMeetrip(event) {
-    console.log('im running***************');
     event.preventDefault();
     fetch('http://localhost:9292/meetrips/create', {
       method: 'POST',
