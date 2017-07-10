@@ -15,7 +15,6 @@ describe('MeetripsList', () => {
   it('Fetches the meetrips', async () => {
     const meetripsList = mount(<MeetripsList />);
     await sleep(500);
-    console.log(meetripsList.find('ul').children().length)
     expect(meetripsList.find('ul').children().length).not.to.equal(0);
   })
 });
