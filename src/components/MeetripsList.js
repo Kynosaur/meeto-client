@@ -1,6 +1,7 @@
 import React from 'react';
 import Meetrip from './Meetrip';
 import NewMeetripForm from './NewMeetripForm'
+import { sleep } from '../testHelpers'
 
 class MeetripsList extends React.Component {
   constructor(props) {
@@ -11,7 +12,10 @@ class MeetripsList extends React.Component {
   }
 
   handler(event) {
-    this.fetchMeetrips();
+    sleep(200).then(function(done) {
+      this.fetchMeetrips();
+      done;
+    }.bind(this));
   }
 
   componentDidMount() {
