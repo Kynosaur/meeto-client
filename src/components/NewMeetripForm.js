@@ -18,7 +18,7 @@ class NewMeetripForm extends React.Component {
 
   createMeetrip(event) {
     event.preventDefault();
-    fetch('http://localhost:9292/meetrips/create', {
+    fetch('https://meetoapi.herokuapp.com/meetrips/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
       body: JSON.stringify(this.state)

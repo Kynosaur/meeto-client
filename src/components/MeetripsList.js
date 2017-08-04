@@ -23,7 +23,7 @@ class MeetripsList extends React.Component {
   }
 
   fetchMeetrips() {
-    fetch('http://localhost:9292/meetrips').then(response => {
+    fetch('https://meetoapi.herokuapp.com/meetrips').then(response => {
       return response.json().then(json => {
         this.setState({ meetrips: json });
       });
